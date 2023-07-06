@@ -4,6 +4,7 @@ import { Section } from './Section/Section';
 import { Statistics } from './Statistics/Statistics';
 import PropTypes from 'prop-types';
 import { Notification } from './Notification/Notification';
+import css from './App.module.css';
 
 export class App extends Component {
   static defaultProps = {
@@ -57,23 +58,14 @@ export class App extends Component {
   }
   render() {
     return (
-      <div
-      // style={{
-      //   height: '100vh',
-      //   display: 'flex',
-      //   justifyContent: 'center',
-      //   alignItems: 'center',
-      //   fontSize: 40,
-      //   color: '#010101',
-      // }}
-      >
+      <div className={css.container}>
         <Section title="Please leave feedback">
           <FeedbackOptions
             options={['Good', 'Neutral', 'Bad']}
             onLeaveFeedback={this.handleBtns}
           />
 
-          <h1>Statistics</h1>
+          <h1 className={css.title}>Statistics</h1>
           {this.countTotalFeedback() === 0 ? (
             <Notification message="There is no feedback" />
           ) : (
